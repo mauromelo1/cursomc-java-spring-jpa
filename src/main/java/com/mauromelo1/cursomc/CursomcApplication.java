@@ -11,7 +11,7 @@ import com.mauromelo1.cursomc.domain.Categoria;
 import com.mauromelo1.cursomc.repositories.CategoriaRepository;
 
 @SpringBootApplication
-public class CursomcApplication implements CommandLineRunner{
+public class CursomcApplication implements CommandLineRunner{ //implements CommandLineRunner
 	
 	@Autowired
 	private CategoriaRepository categoriaRepository;
@@ -21,7 +21,7 @@ public class CursomcApplication implements CommandLineRunner{
 	}
 
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args) throws Exception {  //public void run(String... args) throws Exception {
 		
 		Categoria cat1 = new Categoria(null, "Informática");
 		Categoria cat2 = new Categoria(null, "Escritório");
