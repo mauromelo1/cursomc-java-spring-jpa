@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.mauromelo1.cursomc.domain.Categoria;
+import com.mauromelo1.cursomc.dto.CategoriaDTO;
 import com.mauromelo1.cursomc.repositories.CategoriaRepository;
 import com.mauromelo1.cursomc.services.exceptions.DataIntegrityException;
 import com.mauromelo1.cursomc.services.exceptions.ObjectNotFoundException;
@@ -40,7 +41,7 @@ public class CategoriaService {
 	public Categoria insert(Categoria obj) {
 		obj.setId(null);
 		return repo.save(obj);
-	}
+	}	
 
 	public Categoria update(Categoria obj) {
 		find(obj.getId());
@@ -55,4 +56,9 @@ public class CategoriaService {
 			throw new DataIntegrityException("Não é possível excluir uma categoria que possui produtos");
 		}
 	}
+	
+	public Categoria fromDTO(CategoriaDTO objDto) {
+		return new Categoria(objDto.getId(), objDto.getNome());
+	}
+	
 }
